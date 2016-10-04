@@ -11,3 +11,11 @@ bind_user: bind
 bind_group: bind
 bind_service_name: bind9
 
+bind_log_file: /var/log/named/named.log
+bind_log_severity: dynamic
+bind_log_categories:
+  - default
+  - xfer-in
+  - general
+  - update
+  - queries
