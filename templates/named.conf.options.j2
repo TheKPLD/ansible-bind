@@ -77,6 +77,7 @@ options {
 {% endif %}
 };
 
+{% if bind_logging_enabled %}
 logging {
   channel custom_log {
       file "{{bind_log_file}}" versions 3 size 1024m;
@@ -89,4 +90,4 @@ logging {
   category {{category}} { custom_log; };
 {% endfor %}
 };
-
+{% endif %}
