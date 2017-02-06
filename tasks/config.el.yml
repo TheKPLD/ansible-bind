@@ -78,7 +78,7 @@
     group={{bind_group}}
   notify: [restart bind]
   when: item.value.type == "master"
-  with_dict: bind_zones
+  with_dict: "{{ bind_zones }}"
 
 - name: build slave zones from master
   template:
