@@ -17,6 +17,7 @@ zone "{{key}}" {
     # masters ip adresses
     masters { 
 {% elif zone.type is defined and zone.type == 'forward' %}
+    forward only;
     forwarders {
 {% else %}
     # secondary ip adresses
