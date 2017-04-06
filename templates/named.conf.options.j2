@@ -76,3 +76,18 @@ options {
     };
 {% endif %}
 };
+
+{% if bind_logging_enabled %}
+logging {
+  channel custom_log {
+      file "{{bind_log_file}}" versions 3 size 1024m;
+      severity {{bind_log_severity}};
+      print-time yes;
+      print-severity yes;
+      print-category yes;
+  };
+{% for category in bind_log_categories %}
+  category {{category}} { custom_log; };
+{% endfor %}
+};
+{% endif %}

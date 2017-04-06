@@ -87,3 +87,8 @@
   notify: [reload bind]
   when: bind_create_slave_from_master is defined and bind_create_slave_from_master.0 is defined
   with_items: bind_create_slave_from_master
+
+- name: create ansible bind logging folder
+  file: path={{bind_chroot_log_dir}} state=directory owner={{bind_user}} group={{bind_group}}
+  notify: [restart bind]
+  when: bind_logging_enabled is defined and bind_logging_enabled
